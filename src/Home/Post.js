@@ -5,7 +5,12 @@ export default class HomePost extends React.Component {
   render() {
     return (
       <div className="home-post__outer">
-        <a className="home-post__title" href={this.props.url} target="_blank">
+        <a
+          className="home-post__title"
+          href={this.props.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {this.props.title}
         </a>
         <div className="home-post-details__outer">

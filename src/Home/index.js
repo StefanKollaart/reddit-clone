@@ -3,13 +3,15 @@ import axios from "axios";
 
 import Title from "../components/Title";
 import Post from "./Post";
+import Spinner from "../components/Spinner";
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      posts: []
+      posts: [],
+      postsLoading: true
     };
   }
 
@@ -23,9 +25,18 @@ export default class Home extends React.Component {
         return child.data;
       });
       this.setState({
-        posts: redditData
+        posts: redditData,
+        postsLoading: false
       });
     });
+  };
+
+  renderLoader = () => {
+    if (this.state.postsLoading) {
+      return <Spinner />;
+    } else {
+      return null;
+    }
   };
 
   renderPost = (post, index) => {
@@ -45,6 +56,7 @@ export default class Home extends React.Component {
     return (
       <div className="home__outer">
         <Title heading="Home" subheading="Top 10 posts" leftAligned={true} />
+        {this.renderLoader()}
         {this.state.posts.map(this.renderPost)}
       </div>
     );
