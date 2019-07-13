@@ -44,7 +44,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div className="home__outer">
-        <Title heading="Home" subheading="Top 10 posts" />
+        <Title heading="Home" subheading="Top 10 posts" leftAligned={true} />
         {this.state.posts.map(this.renderPost)}
       </div>
     );

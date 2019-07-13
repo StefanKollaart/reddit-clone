@@ -1,4 +1,10 @@
 .title {
+  &__outer {
+    &--left-aligned {
+      margin-left: 20px;
+    }
+  }
+
   &__heading {
     font-weight: 900;
     color: #263d52;
@@ -19,6 +25,10 @@
     &__outer {
       padding: 0 16px;
       margin-bottom: 20px;
+
+      &--left-aligned {
+        margin-left: 0;
+      }
     }
   }
 }
