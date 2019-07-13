@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  background: #f8f9fa;
+  font-family: "Inter";
+}
+
+.app {
+  &__outer {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    margin-top: 52px;
+  }
+}

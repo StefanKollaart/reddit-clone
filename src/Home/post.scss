@@ -1,0 +1,36 @@
+.home-post {
+  &__outer {
+    background: #ffffff;
+    border: 1px solid #e2e7eb;
+    border-radius: 5px;
+    padding: 24px;
+    margin: 24px 0;
+  }
+
+  &__title {
+    color: #263d52;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+}
+
+.home-post-details {
+  &__outer {
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    color: #8a95a5;
+  }
+
+  &__divider {
+    margin: 0 6px;
+  }
+
+  &__subreddit {
+    color: #4583c2;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}

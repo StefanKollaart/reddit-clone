@@ -1,26 +1,71 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import axios from "axios";
+import "./App.scss";
+import "./Fonts.scss";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Home from "./Home/index";
+import SubredditDetails from "./SubredditDetails/index";
+
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      subredditViewOpen: false,
+      subreddit: undefined
+    };
+  }
+
+  openSubredditView = subreddit => {
+    axios.get(`https://www.reddit.com/r/${subreddit}/about.json`).then(res => {
+      this.setState({
+        subredditViewOpen: true,
+        subreddit: res.data.data
+      });
+    });
+  };
+
+  closeSubredditView = () => {
+    this.setState({
+      subredditViewOpen: false,
+      subreddit: undefined
+    });
+  };
+
+  subredditView = () => {
+    if (this.state.subredditViewOpen) {
+      const items = [
+        {
+          label: "Title",
+          data: this.state.subreddit.title
+        },
+        {
+          label: "Public Description",
+          data: this.state.subreddit.public_description
+        },
+        {
+          label: "Subscriber Count",
+          data: this.state.subreddit.subscribers
+        }
+      ];
+      return (
+        <SubredditDetails
+          title={this.state.subreddit.url}
+          items={items}
+          closeSubredditView={this.closeSubredditView}
+        />
+      );
+    } else {
+      return null;
+    }
+  };
+
+  render() {
+    return (
+      <div className="app__outer">
+        <Home openSubredditView={this.openSubredditView} />
+        {this.subredditView()}
+      </div>
+    );
+  }
 }
-
-export default App;

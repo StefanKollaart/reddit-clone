@@ -1,0 +1,19 @@
+.title {
+  &__outer {
+    // margin-left: 24px;
+  }
+
+  &__heading {
+    font-weight: 900;
+    color: #263d52;
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 48px;
+  }
+
+  &__subheading {
+    color: #8a95a5;
+    margin: 0;
+    font-size: 26px;
+  }
+}

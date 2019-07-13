@@ -1,0 +1,46 @@
+@keyframes slideInSubredditDetails {
+  0% {
+    left: 100vw;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes slideOutSubredditDetails {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100vw;
+  }
+}
+
+.subreddit-details {
+  &__outer {
+    width: 100vw;
+    height: 100vh;
+    left: 100vw;
+    top: 0;
+    animation: slideInSubredditDetails 0.6s;
+    animation-fill-mode: forwards;
+    position: fixed;
+    background: #f8f9fa;
+
+    &--closing {
+      animation: slideOutSubredditDetails 0.6s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    margin-top: 52px;
+  }
+
+  &__title {
+    margin-top: 0;
+  }
+}

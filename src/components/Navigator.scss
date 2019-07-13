@@ -1,0 +1,20 @@
+.navigator {
+  &__outer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    cursor: pointer;
+  }
+
+  &__button {
+    margin-right: 10px;
+    top: 2px;
+    position: relative;
+  }
+
+  &__label {
+    color: #4583c2;
+    margin: 0;
+    font-size: 22px;
+  }
+}
