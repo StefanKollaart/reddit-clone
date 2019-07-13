@@ -22,6 +22,7 @@ export default class App extends React.Component {
         subredditViewOpen: true,
         subreddit: res.data.data
       });
+      document.body.style.overflow = "hidden";
     });
   };
 
@@ -30,6 +31,10 @@ export default class App extends React.Component {
       subredditViewOpen: false,
       subreddit: undefined
     });
+  };
+
+  formatNumberWithDots = number => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
 
   subredditView = () => {
@@ -45,7 +50,7 @@ export default class App extends React.Component {
         },
         {
           label: "Subscriber Count",
-          data: this.state.subreddit.subscribers
+          data: this.formatNumberWithDots(this.state.subreddit.subscribers)
         }
       ];
       return (

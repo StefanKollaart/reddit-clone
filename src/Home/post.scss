@@ -34,3 +34,23 @@
     cursor: pointer;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .home-post {
+    &__outer {
+      margin: 0;
+      border-radius: 0;
+      border-bottom: 0;
+    }
+
+    &__title {
+      font-size: 20px;
+    }
+  }
+
+  .home-post-details {
+    &__outer {
+      font-size: 16px;
+    }
+  }
+}

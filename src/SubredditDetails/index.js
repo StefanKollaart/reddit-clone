@@ -24,12 +24,10 @@ export default class SubredditDetails extends React.Component {
     this.setState({
       isClosing: true
     });
+    document.body.style.overflow = "initial";
     setTimeout(() => {
       this.props.closeSubredditView();
-      this.setState({
-        isClosing: false
-      });
-    }, 1000);
+    }, 600);
   };
 
   render() {

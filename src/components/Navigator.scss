@@ -18,3 +18,11 @@
     font-size: 22px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .navigator {
+    &__outer {
+      padding: 0 16px;
+    }
+  }
+}

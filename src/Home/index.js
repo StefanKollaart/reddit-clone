@@ -35,7 +35,7 @@ export default class Home extends React.Component {
         title={post.title}
         subreddit={post.subreddit}
         score={post.score}
-        url={post.url}
+        url={`https://reddit.com/${post.permalink}`}
         openSubredditView={this.props.openSubredditView}
       />
     );
