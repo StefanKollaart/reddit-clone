@@ -33,7 +33,7 @@ export default class Home extends React.Component {
 
   renderLoader = () => {
     if (this.state.postsLoading) {
-      return <Spinner />;
+      return <Spinner margin={true} />;
     } else {
       return null;
     }
@@ -48,6 +48,8 @@ export default class Home extends React.Component {
         score={post.score}
         url={`https://reddit.com/${post.permalink}`}
         openSubredditView={this.props.openSubredditView}
+        id={index}
+        loading={index == this.props.whichSubredditLoading}
       />
     );
   };
@@ -57,7 +59,9 @@ export default class Home extends React.Component {
       <div className="home__outer">
         <Title heading="Home" subheading="Top 10 posts" leftAligned={true} />
         {this.renderLoader()}
-        {this.state.posts.map(this.renderPost)}
+        <div className="home__posts">
+          {this.state.posts.map(this.renderPost)}
+        </div>
       </div>
     );
   }

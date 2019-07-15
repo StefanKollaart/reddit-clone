@@ -12,15 +12,21 @@ export default class App extends React.Component {
 
     this.state = {
       subredditViewOpen: false,
-      subreddit: undefined
+      subreddit: undefined,
+      whichSubredditLoading: undefined
     };
   }
 
-  openSubredditView = subreddit => {
+  openSubredditView = (subreddit, id) => {
+    this.setState({
+      whichSubredditLoading: id
+    });
+
     axios.get(`https://www.reddit.com/r/${subreddit}/about.json`).then(res => {
       this.setState({
         subredditViewOpen: true,
-        subreddit: res.data.data
+        subreddit: res.data.data,
+        whichSubredditLoading: undefined
       });
       document.body.style.overflow = "hidden";
     });
@@ -68,7 +74,10 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="app__outer">
-        <Home openSubredditView={this.openSubredditView} />
+        <Home
+          openSubredditView={this.openSubredditView}
+          whichSubredditLoading={this.state.whichSubredditLoading}
+        />
         {this.subredditView()}
       </div>
     );
