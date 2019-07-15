@@ -6,7 +6,7 @@ export default class Spinner extends React.Component {
     return (
       <div
         className={`spinner__outer ${
-          this.props.spinner ? "spinner__outer--margin" : ""
+          this.props.margin ? "spinner__outer--margin" : ""
         }`}
       >
         <div className="double-bounce1" />

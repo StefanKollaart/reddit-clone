@@ -49,7 +49,7 @@ export default class Home extends React.Component {
         url={`https://reddit.com/${post.permalink}`}
         openSubredditView={this.props.openSubredditView}
         id={index}
-        loading={index == this.props.whichSubredditLoading}
+        loading={index === this.props.whichSubredditLoading}
       />
     );
   };
